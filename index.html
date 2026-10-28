@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JCA Studio — Strategy & Operations Consultancy</title>
+  
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X04NDHGZG5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-X04NDHGZG5');
+  </script>
+
+  <!-- Google Fonts: Space Grotesk & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #030303;
+      --card-bg: #0a0a0a;
+      --card-border: #1a1a1a;
+      --card-border-hover: #333333;
+      --text-main: #f5f5f7;
+      --text-muted: #8e8e93;
+      --accent-white: #ffffff;
+      --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(3, 3, 3, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-logo-container svg {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-white);
+    }
+
+    .nav-cta {
+      border: 1px solid var(--text-main);
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      color: var(--accent-white) !important;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--text-main);
+      color: var(--bg) !important;
+    }
+
+    section {
+      padding: 8rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 10rem;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      max-width: 900px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent-white);
+      color: var(--bg);
+      padding: 1rem 2.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--text-muted);
+      padding-bottom: 0.2rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-white);
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 2.5rem;
+      border-radius: 12px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-4px);
+    }
+
+    .service-num {
+      font-family: var(--font-heading);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--accent-white);
+      color: var(--accent-white);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+      border-color: var(--card-border-hover);
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 220px;
+      background: #141414;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--card-border);
+      position: relative;
+    }
+
+    .portfolio-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(3, 3, 3, 0.8);
+      border: 1px solid var(--card-border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .portfolio-body {
+      padding: 2rem;
+    }
+
+    .portfolio-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .portfolio-body p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--accent-white);
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 6rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-content, .contact-container {
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding: 1rem;
+      }
+      nav {
+        gap: 1rem;
+      }
+      section {
+        padding: 6rem 1.5rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <a href="#" class="brand-logo-container">
+      <svg viewBox="0 0 240 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="5" y="55" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-size="52" font-weight="300" letter-spacing="-1">JC</text>
+        <line x1="102" y1="58" x2="128" y2="10" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+        <text x="132" y="55" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-size="52" font-weight="300" letter-spacing="-1">A</text>
+        <text x="7" y="88" fill="#FFFFFF" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="400" letter-spacing="0.55em">STUDIO</text>
+      </svg>
+    </a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio & Blog</a>
+      <a href="#contact" class="nav-cta">Connect</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-eyebrow">Strategic Advisory & AI Operations</div>
+    <h1>Architecting scalable operational infrastructure for high-growth enterprises.</h1>
+    <p>JCA Studio partners with founders and executive teams to build custom workflows, optimize multi-million dollar budget portfolios, and integrate custom AI software tools.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Initiate Project</a>
+      <a href="#portfolio" class="btn-secondary">Explore Work & Case Studies</a>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="section-title">Capabilities</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01 / Advisory</div>
+        <h3>Fractional Leadership & Strategy</h3>
+        <p>Directing global communications, budget planning, operational transformations, and governance frameworks for venture-backed and enterprise organizations.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02 / Engineering</div>
+        <h3>Custom AI Tool Development</h3>
+        <p>Building tailored internal software tools, automated budget tracking systems, and custom LLM workflows to digitize complex operations.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03 / Analytics</div>
+        <h3>Measurement & Insights</h3>
+        <p>Developing data partnerships, brand measurement architectures, and ROI models grounded in international evaluation standards.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="section-title">About the Studio</div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>JCA Studio LLC is a specialized strategy, operations, and AI workflow studio founded by Jenna Clark, based in Seattle, WA.</p>
+        <p>Drawing on experience managing $100M+ global budget portfolios at leading tech companies and agency leadership roles, the studio delivers high-impact operational tools, real-time web applications, and fractional executive guidance.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">$100M+</div>
+          <div class="stat-label">Budget Portfolio Managed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">15+ Yrs</div>
+          <div class="stat-label">Executive Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO & BLOG SECTION -->
+  <section id="portfolio">
+    <div class="section-title">Portfolio & Insights</div>
+    
+    <div class="filter-bar">
+      <button class="filter-btn active">All Work</button>
+      <button class="filter-btn">Argos & Games</button>
+      <button class="filter-btn">AI Software</button>
+      <button class="filter-btn">Thought Leadership</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <!-- ARGOS GAME CASE STUDY -->
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <span class="portfolio-tag">Argos & Games</span>
+          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: #444;">ARGOS GUESSING GAME</div>
+        </div>
+        <div class="portfolio-body">
+          <h3>Real-Time Multiplayer Argos Catalog Game</h3>
+          <p>A digitalized multi-device, real-time price-guessing game converting physical catalog cutouts into an interactive web experience.</p>
+          <a href="#contact" class="btn-secondary">View Case Study & Code</a>
+        </div>
+      </div>
+
+      <!-- AI WORKFLOW TOOL CASE STUDY -->
+      <div class="portfolio-card">
+        <div class="portfolio-img">
+          <span class="portfolio-tag">AI Software</span>
+          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: #444;">WORKFLOW OS</div>
+        </div>
+        <div class="portfolio-body">
+          <h3>Custom Operational AI Assistant</h3>
+          <p>Architecting custom prompt workflows and automation pipelines using Anthropic Claude for executive budget tracking and reporting.</p>
+          <a href="#contact" class="btn-secondary">Read Article</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="section-title">Initiate Contact</div>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Let's build together.</h3>
+        <p>Inquire about fractional leadership, operational audits, or custom AI software tool development.</p>
+        <p style="color: var(--text-main); font-family: var(--font-heading);">jenna@jca-studio.ai</p>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to JCA Studio.');">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name or company" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Focus Area</label>
+          <select id="service">
+            <option>Fractional Strategy & Operations</option>
+            <option>Custom AI Tool Engineering</option>
+            <option>Measurement & Analytics Audit</option>
+            <option>Other / Advisory</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Project Scope</label>
+          <textarea id="message" rows="4" placeholder="Briefly describe your goals or project timeline..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; align-self: flex-start;">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 JCA Studio LLC. All rights reserved. | Seattle, WA</p>
+  </footer>
+
+</body>
+</html>
