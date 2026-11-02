@@ -34,3 +34,13 @@ GA4 ID retained from previous site source. Game is a separate Vercel project and
 - After deploying, visit multiple pages and check Vercel Analytics, selecting the Preview environment if necessary. If the script returns 404, consult Vercel's analytics dashboard HTML/Other instructions for a project-specific randomized `/<unique-path>/script.js` and replace the script URL in each HTML page.
 - Existing Google Analytics tag remains unchanged; verify its property is yours.
 - Production and GitHub were not modified. Upload this revision's contents to `editorial-redesign` only.
+
+
+## Revision 04 — Selected Work Christmas image update
+- Replaced the homepage's temporary black “30” typographic artwork with the user's original Argos game photograph (`assets/argos-game-original.jpg`). The original photo is copied byte-for-byte; no AI-generated products or handwriting.
+- Added the approved “THE GAME MUST GO ON.” caption as accessible HTML text, plus orange rule, burgundy wine naturally present in the photo, and cobalt corner accent via CSS.
+- Kept the project headline, description, category, link, and layout on the right unchanged.
+- Added responsive styling at the existing breakpoints.
+- No other page HTML was changed; existing Google Analytics and Vercel Analytics script tags remain intact.
+- For live review, deploy to `editorial-redesign` preview only. The zip is not deployed.
+- The portrait photograph is cropped using CSS `object-fit: cover` for the wide card, so some margins/details may not all show simultaneously. The source file retains every original detail.
