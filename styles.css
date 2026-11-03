@@ -55,3 +55,15 @@
 .story-receipts{background:#fff2e8;padding:28px 30px;margin-top:60px}.story-receipts h2{font-family:var(--sans);font-size:1.5rem;letter-spacing:-.04em;margin:0 0 8px}.story-receipts>p{font-size:.9rem;line-height:1.5}.story-receipts dl{margin:20px 0;display:grid;gap:11px}.story-receipts dl>div{display:grid;grid-template-columns:140px 1fr;gap:12px}.story-receipts dt{font-weight:700}.story-receipts dd{margin:0}
 .story-fineprint{border-top:1px solid var(--rule);padding-top:22px;margin-top:35px}.story-fineprint h2{font-family:var(--sans);font-size:.86rem;letter-spacing:.12em;text-transform:uppercase}.story-fineprint p{font-size:.86rem;line-height:1.6;color:var(--soft)}.story-cta{margin-top:40px!important}.story-back{margin-top:32px!important}
 @media(max-width:760px){.story-hero{grid-template-columns:1fr;gap:30px;padding-top:32px;padding-bottom:45px}.story-photo img{max-height:420px;object-position:center 35%}.story-heading h1{font-size:clamp(2.45rem,10vw,3.6rem)}.story-article>p{font-size:1.03rem}.story-receipts{padding:23px 20px}.story-receipts dl>div{grid-template-columns:1fr;gap:2px}}
+
+/* Circular social sharing controls */
+.article-share{margin:26px 0 32px}
+.article-share-title{font-family:var(--sans);font-size:1.05rem;font-weight:600;line-height:1.2;margin-bottom:16px;color:var(--ink)}
+.article-share-buttons{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.article-share .share-icon{width:52px;height:52px;border:1.7px solid var(--ink);border-radius:50%;display:inline-flex;justify-content:center;align-items:center;flex:0 0 auto;background:transparent;color:var(--ink);padding:0;text-decoration:none;cursor:pointer;transition:background .16s ease,color .16s ease,transform .16s ease}
+.article-share .share-icon:hover,.article-share .share-icon:focus-visible{background:var(--ink);color:white;transform:translateY(-2px);outline-offset:3px}
+.article-share .share-icon svg{width:25px;height:25px;display:block}
+.article-share .share-brand span{font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;letter-spacing:-.06em;line-height:1}
+.article-share .share-facebook span{font-size:29px;letter-spacing:0}
+.article-share .share-message{font-family:var(--sans);font-size:.75rem;color:var(--soft);display:block;margin-top:10px;min-height:1em}
+@media(max-width:760px){.article-share-buttons{gap:10px}.article-share .share-icon{width:46px;height:46px}.article-share .share-icon svg{width:23px;height:23px}}
