@@ -44,3 +44,14 @@ GA4 ID retained from previous site source. Game is a separate Vercel project and
 - No other page HTML was changed; existing Google Analytics and Vercel Analytics script tags remain intact.
 - For live review, deploy to `editorial-redesign` preview only. The zip is not deployed.
 - The portrait photograph is cropped using CSS `object-fit: cover` for the wide card, so some margins/details may not all show simultaneously. The source file retains every original detail.
+
+
+## Revision 05 — Full Christmas launch article
+
+- Restored the fuller user-supplied narrative to `journal/christmas-tradition/index.html`, including the opening family game story, the Google Meet detail, the fuller AI-build explanation, the six-week challenge, and the closing audience question.
+- Kept the approved public headline **Can AI Help Me Save a 30-Year-Old Christmas Tradition?** instead of the working draft title.
+- Omitted unapproved working name **Project Argos**.
+- Omitted the 2026 Argos campaign aside, which was marked in the draft as a possible voice mismatch; this can be reinstated after editorial review.
+- Changed “Three countries. Three time zones.” to “Three countries.” to avoid a potentially inaccurate claim across Seattle, Portugal, and the UK.
+- Preserved the original homepage feature, original photograph, styles, project overview, navigation, analytics scripts, and recurring AI Receipts section.
+- This is an editorial integration for review, **not** a deployment or final publication approval.
