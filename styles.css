@@ -163,3 +163,8 @@
 .story-end .story-close{border-left:3px solid var(--blue);padding:3px 0 3px 19px;margin-top:22px}
 .story-end .story-close-links{margin-top:12px}
 @media(max-width:760px){.story-end .story-fineprint,.story-end .story-close{padding-left:14px}.story-end .receipts-icon{width:21px;height:21px;flex-basis:21px}}
+
+/* Left-align the article reading column with the site's editorial grid */
+@media(min-width:851px){
+  .story-article{margin-left:max(36px,calc((100% - 1260px)/2));margin-right:auto}
+}
