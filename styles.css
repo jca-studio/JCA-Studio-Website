@@ -194,3 +194,13 @@
   .story-article>.story-pull{margin:26px 0}
   .story-end{margin-top:28px}
 }
+
+/* Visitor privacy controls */
+.analytics-consent[hidden]{display:none!important}
+.analytics-consent{position:fixed;z-index:1000;bottom:18px;left:18px;right:18px;max-width:660px;margin:auto;background:#fff;color:#171717;border:1px solid #777;box-shadow:0 8px 35px rgba(0,0,0,.18);padding:20px 24px;font-size:14px;line-height:1.5}
+.analytics-consent p{margin:0 0 14px}.analytics-consent a,.privacy-page a{text-decoration:underline;text-underline-offset:3px}
+.analytics-consent-actions{display:flex;gap:10px;flex-wrap:wrap}
+.analytics-consent button{border:1px solid #171717;padding:10px 14px;font:600 13px var(--sans);cursor:pointer;background:white;color:#171717}
+.analytics-consent button[data-consent="accepted"]{background:#171717;color:white}
+.analytics-consent button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.privacy-page{max-width:780px;padding-top:65px;padding-bottom:90px}.privacy-page h1{font-size:clamp(40px,6vw,70px);letter-spacing:-.05em}.privacy-page h2{margin-top:36px;font-size:23px}.privacy-page p{line-height:1.7}
