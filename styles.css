@@ -133,3 +133,26 @@
 .about-contact-links .contact-link{font-size:1rem;padding:15px 0}
 .about-contact-links .contact-link span{font-family:Arial,sans-serif;font-size:23px;font-weight:400}
 @media(max-width:850px){.about-contact{padding-bottom:58px}.about-contact-grid{grid-template-columns:1fr;gap:18px;padding-top:26px}.about-contact-intro h3{font-size:clamp(3.4rem,12vw,5rem)}.about-contact-content>p{font-size:16px;line-height:1.58;margin-bottom:15px}.about-credentials{margin:19px 0 20px}.about-contact-links{padding-top:18px}}
+
+/* Refined end-of-article receipts, disclaimer and navigation */
+.story-end{max-width:735px;margin:35px auto 0}
+.story-end .story-receipts{background:#FFF8F4;margin:0;padding:22px 25px;border-left:3px solid var(--orange)}
+.story-end .receipts-heading{display:flex;align-items:center;gap:10px}
+.story-end .receipts-mark{width:9px;height:9px;background:var(--orange);border-radius:50%;flex:0 0 auto}
+.story-end .story-receipts h2{font-family:var(--sans);font-size:1.22rem;font-weight:700;line-height:1.2;letter-spacing:-.035em;margin:0}
+.story-end .receipts-intro{font-size:.86rem;line-height:1.5;margin:8px 0 15px;color:var(--soft)}
+.story-end .receipts-entries{display:grid;gap:8px;margin:0}
+.story-end .receipts-entries>div{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:baseline;font-size:.88rem;line-height:1.5}
+.story-end .receipts-entries dt{font-weight:700}
+.story-end .receipts-entries dd{margin:0;color:var(--ink)}
+.story-end .receipts-footnote{font-size:.78rem;line-height:1.5;color:var(--soft);margin:14px 0 0}
+.story-end .story-fineprint{border:0;padding:0;margin:18px 0 0}
+.story-end .story-fineprint h2{font-size:.73rem;letter-spacing:.12em;margin:0 0 6px}
+.story-end .story-fineprint p{font-size:.79rem;line-height:1.48;margin:0;color:var(--soft)}
+.story-close{margin-top:23px}
+.story-close>p{font-size:1rem;line-height:1.6;margin:0 0 13px}
+.story-close-links{display:flex;align-items:center;gap:15px 32px;flex-wrap:wrap}
+.story-close-links a{font-family:var(--sans);font-size:.82rem;font-weight:700;letter-spacing:.075em;text-transform:uppercase;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding:8px 0}
+.story-close-links a span{font-size:20px;font-weight:400;line-height:1}
+.story-close-links a:hover{text-decoration:none;color:var(--burgundy)}
+@media(max-width:760px){.story-end{margin-top:28px}.story-end .story-receipts{padding:19px 17px}.story-end .receipts-entries>div{grid-template-columns:1fr;gap:1px}.story-close-links{gap:10px 24px}}
