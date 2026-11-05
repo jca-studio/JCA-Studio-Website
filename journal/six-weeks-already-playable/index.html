@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#F7F5F0" name="theme-color"/><link href="/styles.css" rel="stylesheet"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X04NDHGZG5"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-X04NDHGZG5')</script><title>Draft · I Gave Myself Six Weeks to Build an App. But It's Already Playable. | JCA Studio</title><meta name="description" content="A behind-the-scenes look at how an AI-assisted Christmas family game became playable—and what still takes time."/><!-- Vercel Web Analytics: static HTML integration -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script defer="" src="/_vercel/insights/script.js"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="robots" content="noindex,nofollow,noarchive"/><style>
+.draft-ribbon{background:#202022;color:#fff;font-family:Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;font-size:11px;font-weight:700;text-align:center;padding:11px 18px}
+.draft-ribbon span{color:#e8a269}
+.draft-hero{padding-top:63px;padding-bottom:40px;border-bottom:1px solid var(--rule);margin-bottom:48px}
+.draft-hero .eyebrow{color:var(--blue)}
+.draft-hero h1{font-family:var(--sans);font-size:clamp(2.8rem,6.2vw,6.5rem);font-weight:600;letter-spacing:-.065em;line-height:1.035;max-width:1030px;margin:19px 0 23px}
+.draft-hero .subtitle{font-size:clamp(1.1rem,2vw,1.5rem);max-width:790px;line-height:1.55;color:var(--soft);margin:0 0 24px}
+.draft-hero .byline{font-family:var(--sans);font-size:.82rem}
+.story-article .build-intro{font-size:1.23rem;line-height:1.7}
+.story-article .build-dialogue{font-family:var(--sans);padding:22px 26px;border-left:5px solid var(--orange);background:#fff9f3;margin:23px 0 30px}
+.build-dialogue p{font-size:1.08rem;line-height:1.55;margin:0 0 11px}.build-dialogue p:last-child{margin-bottom:0}
+.build-timeline{list-style:none;padding:0;margin:27px 0 38px;border-top:1px solid var(--rule)}
+.build-step{display:grid;grid-template-columns:118px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.build-date{font-family:var(--sans);font-size:.76rem;letter-spacing:.08em;font-weight:700;color:var(--blue);padding-top:4px}
+.build-step h3{font-family:var(--sans);font-size:1.2rem;letter-spacing:-.035em;margin:0 0 7px}
+.build-step p{line-height:1.65;color:var(--soft);font-size:.96rem;margin:0}
+.shot-section{margin:40px 0 45px}
+.shot-section .shot-header{font:700 .78rem var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--soft);margin:0 0 15px}
+.shot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.shot-placeholder{margin:0;min-width:0}
+.shot-screen{aspect-ratio:3 / 4.2;background:#eae7e1;border:1px dashed #b5afa8;border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;color:#77736e;position:relative;text-align:center;padding:12px}
+.shot-n{position:absolute;top:13px;left:14px;font:700 11px var(--sans);letter-spacing:.12em}
+.shot-symbol{font-size:42px;font-weight:200}
+.shot-msg{font:700 10px var(--sans);letter-spacing:.12em}
+.shot-placeholder figcaption{font-family:var(--sans);font-size:.8rem;line-height:1.5;margin-top:11px}
+.shot-placeholder figcaption strong,.shot-placeholder figcaption span{display:block}
+.shot-placeholder figcaption span{color:var(--soft);margin-top:3px;font-size:.75rem}
+.hours-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:.93rem;margin:23px 0 16px}
+.hours-table th,.hours-table td{padding:12px 8px;border-bottom:1px solid var(--rule);text-align:left}
+.hours-table td{text-align:right;font-variant-numeric:tabular-nums}
+.hours-table thead th{font-size:.73rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.hours-table tbody th{font-weight:400}
+.hours-table tfoot th,.hours-table tfoot td{font-weight:700;border-top:2px solid var(--ink)}
+.hours-note{font-size:.84rem!important;line-height:1.55!important;color:var(--soft)}
+.story-article .build-takeaway{border-left:5px solid var(--orange);font-family:var(--sans);font-weight:600;letter-spacing:-.03em;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.35;padding:6px 0 6px 21px;margin:28px 0 31px}
+.story-article .build-questions{font-style:italic;line-height:1.75}
+.draft-hero,.story-article{box-sizing:border-box}
+@media(max-width:760px){.draft-hero{padding-top:35px;margin-bottom:31px}.draft-hero h1{font-size:clamp(2.45rem,10.5vw,4rem)}.build-step{grid-template-columns:1fr;gap:6px;padding:19px 0}.shot-grid{gap:8px}.shot-screen{min-height:175px}.shot-msg{font-size:8px}.shot-placeholder figcaption{font-size:.72rem}.shot-placeholder figcaption span{font-size:.66rem}.shot-symbol{font-size:29px}.story-article .build-dialogue{padding:17px 18px}}
+</style></head><body><header class="mast"><div class="wrap mast-inner"><a aria-label="JCA Studio home" class="logo" href="/"><svg aria-label="JCA Studio" role="img" viewbox="0 0 124 84" xmlns="http://www.w3.org/2000/svg"><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" letter-spacing="-3.2" x="1" y="44">JC</text><path d="M59 47 L75 7" stroke="currentColor" stroke-width="2.9"></path><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" x="78" y="44">A</text><text fill="currentColor" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="6" text-anchor="middle" x="62" y="68">STUDIO</text></svg></a><nav class="nav" aria-label="Main navigation"><a href="/journal/">Projects</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header><div class="draft-ribbon"><span>Draft preview</span> · Not published · Screenshot placeholders are intentional</div>
+<main><header class="wrap draft-hero"><div class="eyebrow">Projects / Christmas 2026 / Build Journal 02</div><h1>I Gave Myself Six Weeks to Build an App. But It's Already Playable.</h1><p class="subtitle">What roughly two dozen hours of AI-assisted development actually looks like—and why I'm not calling it finished.</p><div class="byline">By Jenna Clark · Draft for November 2026</div></header>
+<article class="wrap story-article">
+<p class="build-intro">Shortly after I announced my plan to spend six weeks building a digital version of our family's Christmas game, my friend Emily sent me a message.</p>
+<div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>Which was funny, because I'd just sent her a link to play it.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
+<p>And that got me thinking.</p>
+<p><strong>If the game is already playable, what exactly am I spending six weeks doing?</strong></p>
+<h2>How long did it actually take?</h2>
+<p>When I announced the six-week experiment, I left out one fairly important detail: I'd already been building the game, on and off, since September.</p>
+<p>And by the end of October, it was a functioning multiplayer app.</p>
+<p>People could join from their phones, guess product prices, reveal the answers, and compete for points. We had a hosted game, a growing library of real Argos products, and even an optional TV scoreboard.</p>
+<p>I'm not a traditional software developer, so seeing something I'd imagined become playable that quickly was genuinely exciting.</p>
+<p>But I also wanted to understand how quickly it had actually happened. Not how long AI took to generate code. How much time had I spent thinking, making decisions, working with AI, gathering content, designing, testing, troubleshooting, and getting everything online?</p>
+<p>Fortunately, I'd been keeping a build log. Here's how it unfolded.</p>
+<h2>From idea to playable game</h2>
+<ol class="build-timeline"><li class="build-step"><div class="build-date">SEP 21–22</div><div class="build-step-copy"><h3>The idea</h3><p>The phone-first guessing game, scoring direction, and first product links. Nothing built yet.</p></div></li><li class="build-step"><div class="build-date">OCT 21</div><div class="build-step-copy"><h3>The first prototype</h3><p>Eight items, simulated players, and a design inspired by the original kraft envelope and handwritten scoring sheets.</p></div></li><li class="build-step"><div class="build-date">OCT 28</div><div class="build-step-copy"><h3>Real products and personality</h3><p>Argos-inspired colors, a growing product library, and Trevor the dinosaur in a Santa hat. Obviously essential.</p></div></li><li class="build-step"><div class="build-date">OCT 29</div><div class="build-step-copy"><h3>The big leap</h3><p>Real multiplayer: four-digit room codes, live guesses, price reveals, scoring, three rounds, a hosted game, and an optional TV scoreboard.</p></div></li><li class="build-step"><div class="build-date">NOV 2</div><div class="build-step-copy"><h3>The family test</h3><p>A phone reload wiped guesses. We fixed rejoining, simplified the flow, made the guessing screen clearer, and added scheduling across time zones.</p></div></li><li class="build-step"><div class="build-date">NOV 4</div><div class="build-step-copy"><h3>Practice and polish</h3><p>Computer opponents, clearer lobby feedback, a host notification when someone joins—and the launch of this public build journal.</p></div></li></ol>
+<section class="shot-section" aria-label="Game screenshot placeholders"><p class="shot-header">Inside the game · Images to be added</p><div class="shot-grid"><figure class="shot-placeholder"><div class="shot-screen"><span class="shot-n">01</span><span class="shot-symbol" aria-hidden="true">▧</span><span class="shot-msg">SCREENSHOT PENDING</span></div><figcaption><strong>Start or join</strong><span>Actual lobby / four-digit room code</span></figcaption></figure><figure class="shot-placeholder"><div class="shot-screen"><span class="shot-n">02</span><span class="shot-symbol" aria-hidden="true">▧</span><span class="shot-msg">SCREENSHOT PENDING</span></div><figcaption><strong>Make a guess</strong><span>Actual product and price-entry screen</span></figcaption></figure><figure class="shot-placeholder"><div class="shot-screen"><span class="shot-n">03</span><span class="shot-symbol" aria-hidden="true">▧</span><span class="shot-msg">SCREENSHOT PENDING</span></div><figcaption><strong>Reveal and scores</strong><span>Actual reveal / scoresheet screen</span></figcaption></figure></div></section>
+<h2>The numbers surprised me</h2>
+<p>I went back through the build log and estimated how much hands-on time I'd spent on the different parts of the project.</p>
+<table class="hours-table"><thead><tr><th scope="col">What I was doing</th><th scope="col">Estimated time</th></tr></thead><tbody><tr><th scope="row">Conceiving</th><td>2h</td></tr><tr><th scope="row">Building (product development)</th><td>8.5h</td></tr><tr><th scope="row">Content & product data</th><td>5h</td></tr><tr><th scope="row">Design & branding</th><td>3h</td></tr><tr><th scope="row">Testing & QA</th><td>4h</td></tr><tr><th scope="row">Shipping & hosting</th><td>1.5h</td></tr><tr><th scope="row">Documentation</th><td>2h</td></tr></tbody><tfoot><tr><th scope="row">Total estimated</th><td>~26h</td></tr></tfoot></table>
+<p class="hours-note">These aren't stopwatch measurements. They're estimates from a working log, with some overlapping activities. The dated sessions add up to about 22 hours, while the category estimates total roughly 26. I haven't reconciled the difference to the half-hour.</p>
+<p>But the broader picture is interesting. Only about a third of the estimated time was spent directly building the app and its features. The rest went into decisions, content, design, testing, and operational work surrounding the code.</p>
+<blockquote class="build-takeaway">AI dramatically accelerated the implementation. It didn't make the rest of the work disappear.</blockquote>
+<h2>The prototype is not the product</h2>
+<p>This is where I think the conversation about building with AI gets especially interesting.</p>
+<p>For someone like me, who has spent a career turning ideas into systems and products but isn't a traditional developer, being able to work directly on a functioning application is extraordinary.</p>
+<p>I can describe the experience I want, make decisions about how it should work, test what comes back, and iterate.</p>
+<p>Claude has done the technical heavy lifting: building the multiplayer functionality, integrating the real-time database, implementing the game mechanics, and helping fix what breaks.</p>
+<p>My role has been deciding what we're building, how the experience should work, what needs changing, and whether the result is actually good enough.</p>
+<p>And the speed is remarkable. But when I sent the game to my family, I was reminded of something that hasn't changed.</p>
+<p><strong>Getting software to work is one milestone. Getting it to work reliably for other people is another.</strong></p>
+<p>A game that loses someone's guesses when they refresh technically works—until someone refreshes.</p>
+<p>A guessing screen technically works—even if someone can't find the submit button.</p>
+<p>A multiplayer room technically works—but if a player doesn't know whether they're waiting for the host or experiencing a technical problem, the experience still needs work.</p>
+<p>Those details aren't exciting AI demos. They're what make something usable.</p>
+<h2>So what are the six weeks actually for?</h2>
+<p>They're not six weeks of generating more code simply because I can. They're time to make sure the game is ready for the people it's meant for.</p>
+<p><strong>Reliability.</strong> What happens when someone's phone disconnects? Can they rejoin without losing their guesses? What happens when the whole family joins at once?</p>
+<p><strong>Testing.</strong> What happens when people who haven't spent hours thinking about the game try to play it? Which assumptions turn out to be wrong?</p>
+<p><strong>Thoughtful design.</strong> Can everyone understand what to do? Is it obvious when to guess, submit, wait, and reveal?</p>
+<p><strong>Accessibility.</strong> Can people with different abilities, devices, and levels of technical confidence participate? What still needs improvement?</p>
+<p><strong>Content accuracy.</strong> Are the product photos reliable? Are the prices still current? Will they be accurate when Christmas arrives?</p>
+<p>And perhaps most importantly: <strong>Does it actually feel like our family game?</strong></p>
+<p>Does it preserve the laughter, the competitive guessing, the ridiculous answers, and the little traditions that have made it part of Christmas for nearly 30 years?</p>
+<p>Because the goal was never simply to build an app. The goal was to keep a family tradition going.</p>
+<h2>What AI actually changes</h2>
+<p>One of the reasons I wanted to document this experiment is that I'm interested in how AI changes the work of building things. Not just the speed of development, but where the time, effort, and judgment go.</p>
+<p>AI has made technical implementation dramatically more accessible to me. But it hasn't eliminated the need for sound architecture, testing, thoughtful design, or human judgment.</p>
+<p>If anything, the faster you can create something, the more important those decisions become.</p>
+<p>When you can build another feature in minutes, you have to be deliberate about whether it belongs. When you can produce a working prototype quickly, you have to resist mistaking that speed for a finished product.</p>
+<p>And when the technical barriers get lower, the questions shift.</p>
+<p class="build-questions">Should we build it this way?<br/>Will it work when real people use it?<br/>Does it actually make their experience better?</p>
+<p>Those are questions I want to keep exploring over the next several weeks.</p>
+<h2>Back to Emily</h2>
+<p>So yes, Emily. You were right. I didn't need six more weeks to get a working version of the game into your hands. You'd already played it.</p>
+<p>But I'm giving myself the time to make sure our family can enjoy it on Christmas Day—across three countries, on different phones, with all the unpredictability that comes with getting everyone together.</p>
+<blockquote class="story-pull">AI shortened the time it took to build the game. <span class="blue">It hasn't shortened the list of things that make the game worth playing.</span></blockquote>
+<p>And I think that's where the more interesting work begins.</p>
+<div class="story-end">
+<section class="story-receipts" aria-labelledby="receipts-heading"><div class="receipts-heading"><svg class="receipts-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18l3-2 3 2 3-2 3 2 3-2V3H4Z"/><path d="M8 8h7M8 12h7M8 16h4"/></svg><h2 id="receipts-heading">AI Receipts</h2></div>
+<p class="receipts-intro">The tools and services behind the work described here.</p>
+<dl class="receipts-entries">
+<div><dt>Claude</dt><dd>Primary technical development partner: multiplayer, scoring, scheduling, interface, debugging, product-data collection, and documentation.</dd></div>
+<div><dt>ChatGPT</dt><dd>Editorial collaboration, organizing the build history, and developing the JCA Studio website and this article.</dd></div>
+<div><dt>Google Photos</dt><dd>Finding the original photograph of the family's physical game.</dd></div>
+<div><dt>Firebase</dt><dd>Real-time database powering synchronized multiplayer rooms.</dd></div>
+<div><dt>GitHub Pages</dt><dd>Game hosting, as recorded in the build log.</dd></div>
+</dl><p class="receipts-footnote">These time estimates are approximate; accessibility and Christmas Day readiness are still being tested. Other tools used elsewhere in the JCA Studio project are not credited as contributors to this build unless confirmed.</p></section>
+<section class="story-fineprint"><h2>The Fine Print</h2><p>This is an independent personal project inspired by our family's use of historic Argos catalogs. It is not affiliated with or endorsed by Argos. The game remains in development and a public playable version hasn't been announced.</p></section>
+<div class="story-close"><p>Interested in helping test it? I'd love to hear from you. Just be prepared for a few rough edges.</p><nav class="story-close-links" aria-label="End of article"><a href="mailto:jenna@jca-studio.com">Get in touch <span aria-hidden="true">↗</span></a><a href="/journal/">More projects <span aria-hidden="true">↗</span></a></nav></div>
+</div></article></main>
+<footer class="wrap footer"><span>© 2026 JCA Studio · An independent space by Jenna Clark</span><span><a href="mailto:jenna@jca-studio.com">Email</a> · <a href="https://www.linkedin.com/in/jennaswyclark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><span class="dot"> ●</span></span></footer></body></html>
