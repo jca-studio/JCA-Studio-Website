@@ -29,12 +29,20 @@
 .shot-placeholder figcaption{font-family:var(--sans);font-size:.8rem;line-height:1.5;margin-top:11px}
 .shot-placeholder figcaption strong,.shot-placeholder figcaption span{display:block}
 .shot-placeholder figcaption span{color:var(--soft);margin-top:3px;font-size:.75rem}
-.hours-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:.93rem;margin:23px 0 16px}
-.hours-table th,.hours-table td{padding:12px 8px;border-bottom:1px solid var(--rule);text-align:left}
-.hours-table td{text-align:right;font-variant-numeric:tabular-nums}
-.hours-table thead th{font-size:.73rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
-.hours-table tbody th{font-weight:400}
-.hours-table tfoot th,.hours-table tfoot td{font-weight:700;border-top:2px solid var(--ink)}
+.hours-chart{margin:25px 0 19px;padding:25px 27px 23px;border:1px solid var(--rule);border-radius:6px;font-family:var(--sans)}
+.hours-chart-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:24px}
+.hours-chart-kicker{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:0 0 7px}
+.hours-chart-total{font-size:clamp(2.2rem,4.1vw,3.2rem);font-weight:700;letter-spacing:-.065em;line-height:1.1;margin:0}
+.hours-chart-subtitle{font-size:.87rem;color:var(--soft);margin:5px 0 0}
+.hours-chart-period{font-size:.76rem;color:var(--soft);white-space:nowrap;margin-top:3px}
+.hours-bars{display:grid;gap:16px}
+.hours-bar-heading{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:7px;font-size:.89rem;line-height:1.3}
+.hours-bar-value{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.hours-track{height:11px;background:#ebe9e5;border-radius:2px;overflow:hidden}
+.hours-fill{height:100%;background:#c6c3bd;border-radius:2px}
+.hours-row--build .hours-fill{background:var(--blue)}
+.hours-row--build .hours-bar-label{font-weight:700}
+@media(max-width:760px){.hours-chart{padding:19px 16px 20px}.hours-chart-top{gap:10px;margin-bottom:21px}.hours-chart-period{font-size:.68rem}.hours-bar-heading{font-size:.82rem}.hours-bars{gap:15px}}
 .hours-note{font-size:.84rem!important;line-height:1.55!important;color:var(--soft)}
 .story-article .build-takeaway{border-left:5px solid var(--orange);font-family:var(--sans);font-weight:600;letter-spacing:-.03em;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.35;padding:6px 0 6px 21px;margin:28px 0 31px}
 .story-article .build-questions{font-style:italic;line-height:1.75}
@@ -59,7 +67,7 @@
 <section class="shot-section" aria-label="Game screenshot placeholders"><p class="shot-header">Inside the game · Images to be added</p><div class="shot-grid"><figure class="shot-placeholder"><div class="shot-screen"><span class="shot-n">01</span><span class="shot-symbol" aria-hidden="true">▧</span><span class="shot-msg">SCREENSHOT PENDING</span></div><figcaption><strong>Start or join</strong><span>Actual lobby / four-digit room code</span></figcaption></figure><figure class="shot-placeholder"><div class="shot-screen"><span class="shot-n">02</span><span class="shot-symbol" aria-hidden="true">▧</span><span class="shot-msg">SCREENSHOT PENDING</span></div><figcaption><strong>Make a guess</strong><span>Actual product and price-entry screen</span></figcaption></figure><figure class="shot-placeholder"><div class="shot-screen"><span class="shot-n">03</span><span class="shot-symbol" aria-hidden="true">▧</span><span class="shot-msg">SCREENSHOT PENDING</span></div><figcaption><strong>Reveal and scores</strong><span>Actual reveal / scoresheet screen</span></figcaption></figure></div></section>
 <h2>Where did the time go?</h2>
 <p>I went back through the build log and estimated how much time I'd spent on each part of the project.</p>
-<table class="hours-table"><thead><tr><th scope="col">What I was doing</th><th scope="col">Estimated time</th></tr></thead><tbody><tr><th scope="row">Conceiving</th><td>2h</td></tr><tr><th scope="row">Building (product development)</th><td>8.5h</td></tr><tr><th scope="row">Content & product data</th><td>5h</td></tr><tr><th scope="row">Design & branding</th><td>3h</td></tr><tr><th scope="row">Testing & QA</th><td>4h</td></tr><tr><th scope="row">Shipping & hosting</th><td>1.5h</td></tr><tr><th scope="row">Documentation</th><td>2h</td></tr></tbody><tfoot><tr><th scope="row">Total estimated</th><td>~26h</td></tr></tfoot></table>
+<figure class="hours-chart" aria-label="Estimated 26 hours of hands-on project time by activity. Building the app: 8.5 hours; content and product data: 5 hours; testing and QA: 4 hours; design and branding: 3 hours; conceiving: 2 hours; documentation: 2 hours; shipping and hosting: 1.5 hours."><div class="hours-chart-top"><div><div class="hours-chart-kicker">Where the time went</div><p class="hours-chart-total">~26 hours</p><p class="hours-chart-subtitle">Estimated hands-on time</p></div><div class="hours-chart-period">Sep–Nov 2026</div></div><div class="hours-bars"><div class="hours-row hours-row--build"><div class="hours-bar-heading"><span class="hours-bar-label">Building the app</span><span class="hours-bar-value">8.5h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:100.00%"></div></div></div><div class="hours-row"><div class="hours-bar-heading"><span class="hours-bar-label">Content & product data</span><span class="hours-bar-value">5h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:58.82%"></div></div></div><div class="hours-row"><div class="hours-bar-heading"><span class="hours-bar-label">Testing & QA</span><span class="hours-bar-value">4h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:47.06%"></div></div></div><div class="hours-row"><div class="hours-bar-heading"><span class="hours-bar-label">Design & branding</span><span class="hours-bar-value">3h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:35.29%"></div></div></div><div class="hours-row"><div class="hours-bar-heading"><span class="hours-bar-label">Conceiving</span><span class="hours-bar-value">2h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:23.53%"></div></div></div><div class="hours-row"><div class="hours-bar-heading"><span class="hours-bar-label">Documentation</span><span class="hours-bar-value">2h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:23.53%"></div></div></div><div class="hours-row"><div class="hours-bar-heading"><span class="hours-bar-label">Shipping & hosting</span><span class="hours-bar-value">1.5h</span></div><div class="hours-track" aria-hidden="true"><div class="hours-fill" style="width:17.65%"></div></div></div></div></figure>
 <p class="hours-note">These are approximate estimates based on my build log, not a stopwatch.</p>
 <p>Only about a third of that time was spent directly building the app.</p>
 <p>The rest went into decisions, design, content, testing, and getting it into people's hands.</p>
