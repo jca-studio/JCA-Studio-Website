@@ -48,8 +48,24 @@
 .story-article .build-questions{font-style:italic;line-height:1.75}
 .draft-hero,.story-article{box-sizing:border-box}
 @media(max-width:760px){.draft-hero{padding-top:35px;margin-bottom:31px}.draft-hero h1{font-size:clamp(2.45rem,10.5vw,4rem)}.build-step{grid-template-columns:1fr;gap:6px;padding:19px 0}.shot-grid{gap:8px}.shot-screen{min-height:175px}.shot-msg{font-size:8px}.shot-placeholder figcaption{font-size:.72rem}.shot-placeholder figcaption span{font-size:.66rem}.shot-symbol{font-size:29px}.story-article .build-dialogue{padding:17px 18px}}
+
+/* Draft article audio — browser speech synthesis */
+.article-listen{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:18px;font-family:var(--sans)}
+.article-listen button{appearance:none;background:transparent;border:1px solid var(--rule);border-radius:100px;padding:10px 15px;color:inherit;font:600 .82rem var(--sans);cursor:pointer;display:inline-flex;gap:8px;align-items:center;min-height:42px}
+.article-listen button:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+.article-listen button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.article-listen button:disabled{opacity:.45;cursor:not-allowed}
+.article-listen .listen-primary{background:var(--blue);border-color:var(--blue);color:white}
+.article-listen .listen-primary:hover:not(:disabled){background:var(--blue);color:white;filter:brightness(.9)}
+.article-listen-status{font:400 .78rem/1.4 var(--sans);color:var(--soft);margin-left:2px}
+@media(max-width:500px){.article-listen{gap:7px}.article-listen button{padding:9px 13px}}
 </style></head><body><header class="mast"><div class="wrap mast-inner"><a aria-label="JCA Studio home" class="logo" href="/"><svg aria-label="JCA Studio" role="img" viewbox="0 0 124 84" xmlns="http://www.w3.org/2000/svg"><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" letter-spacing="-3.2" x="1" y="44">JC</text><path d="M59 47 L75 7" stroke="currentColor" stroke-width="2.9"></path><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" x="78" y="44">A</text><text fill="currentColor" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="6" text-anchor="middle" x="62" y="68">STUDIO</text></svg></a><nav class="nav" aria-label="Main navigation"><a href="/journal/">Projects</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header><div class="draft-ribbon"><span>Draft preview</span> · Not published · Screenshot placeholders are intentional</div>
-<main><header class="wrap draft-hero"><div class="eyebrow">Projects / Christmas 2026 / Build Journal 02</div><h1>I Gave Myself Six Weeks to Build an App. But It's Already Playable.</h1><p class="subtitle">About 26 hours of building with AI—and why playable isn't the same as finished.</p><div class="byline">By Jenna Clark · Draft for November 2026</div></header>
+<main><header class="wrap draft-hero"><div class="eyebrow">Projects / Christmas 2026 / Build Journal 02</div><h1>I Gave Myself Six Weeks to Build an App. But It's Already Playable.</h1><p class="subtitle">About 26 hours of building with AI—and why playable isn't the same as finished.</p><div class="byline">By Jenna Clark · Draft for November 2026</div><div class="article-listen" role="group" aria-label="Article audio player">
+<button class="listen-primary" type="button" id="listen-play" aria-label="Play article aloud"><span aria-hidden="true">▶</span> Listen to this article</button>
+<button type="button" id="listen-pause" disabled aria-label="Pause narration">Pause</button>
+<button type="button" id="listen-stop" disabled aria-label="Stop narration">Stop</button>
+<span id="listen-status" class="article-listen-status" role="status" aria-live="polite">Uses your device's voice</span>
+</div></header>
 <article class="wrap story-article">
 <p class="build-intro">Shortly after I announced my plan to spend six weeks building a digital version of our family's Christmas game, my friend Emily sent me a message.</p>
 <div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>Which was funny, because I'd just sent her a link to play it.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
@@ -102,4 +118,77 @@
 <section class="story-fineprint"><h2>The Fine Print</h2><p>This is an independent personal project inspired by our family's use of historic Argos catalogues. It is not affiliated with or endorsed by Argos. The game remains in development and a public playable version hasn't been announced.</p></section>
 <div class="story-close"><p>Interested in helping test it? I'd love to hear from you. Just be prepared for a few rough edges.</p><nav class="story-close-links" aria-label="End of article"><a href="mailto:jenna@jca-studio.com">Get in touch <span aria-hidden="true">↗</span></a><a href="/journal/">More projects <span aria-hidden="true">↗</span></a></nav></div>
 </div></article></main>
-<footer class="wrap footer"><span>© 2026 JCA Studio · An independent space by Jenna Clark</span><span><a href="mailto:jenna@jca-studio.com">Email</a> · <a href="https://www.linkedin.com/in/jennaswyclark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><span class="dot"> ●</span></span></footer></body></html>
+<footer class="wrap footer"><span>© 2026 JCA Studio · An independent space by Jenna Clark</span><span><a href="mailto:jenna@jca-studio.com">Email</a> · <a href="https://www.linkedin.com/in/jennaswyclark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><span class="dot"> ●</span></span></footer><script>
+(function(){
+  'use strict';
+  var play=document.getElementById('listen-play');
+  var pause=document.getElementById('listen-pause');
+  var stop=document.getElementById('listen-stop');
+  var status=document.getElementById('listen-status');
+  var synth=window.speechSynthesis;
+  if(!play||!pause||!stop||!status)return;
+  if(!synth||!window.SpeechSynthesisUtterance){
+    play.disabled=true;
+    status.textContent='Audio isn't supported by this browser.';
+    return;
+  }
+  var segments=[],index=0,active=false,paused=false,session=0;
+  function setControls(){
+    play.disabled=active&&!paused;
+    play.innerHTML=paused?'<span aria-hidden="true">▶</span> Resume':'<span aria-hidden="true">▶</span> Listen to this article';
+    play.setAttribute('aria-label',paused?'Resume narration':'Play article aloud');
+    pause.disabled=!active||paused;
+    stop.disabled=!active;
+    status.textContent=paused?'Paused':active?'Playing article':'Uses your device\'s voice';
+  }
+  function gatherText(){
+    var article=document.querySelector('article.story-article');
+    var title=document.querySelector('.draft-hero h1');
+    var subtitle=document.querySelector('.draft-hero .subtitle');
+    var parts=[];
+    if(title)parts.push(title.textContent.trim());
+    if(subtitle)parts.push(subtitle.textContent.trim());
+    if(article){
+      article.querySelectorAll('p,h2,h3,blockquote').forEach(function(el){
+        if(el.closest('.story-end,.hours-chart,.shot-section'))return;
+        var str=el.textContent.replace(/\s+/g,' ').trim();
+        if(str)parts.push(str);
+      });
+    }
+    return parts;
+  }
+  function finish(){
+    active=false;paused=false;index=0;segments=[];setControls();
+  }
+  function speakNext(token){
+    if(!active||paused||token!==session)return;
+    if(index>=segments.length){finish();return;}
+    var utterance=new SpeechSynthesisUtterance(segments[index++]);
+    utterance.lang='en-US';
+    utterance.rate=1;
+    utterance.onend=function(){speakNext(token);};
+    utterance.onerror=function(e){
+      if(token!==session||!active)return;
+      if(e.error==='interrupted'||e.error==='canceled')return;
+      session++;synth.cancel();finish();
+      status.textContent='Playback stopped. Try again or use a different browser.';
+    };
+    synth.speak(utterance);
+  }
+  play.addEventListener('click',function(){
+    if(paused){paused=false;synth.resume();setControls();return;}
+    if(active)return;
+    segments=gatherText();index=0;
+    if(!segments.length){status.textContent='No article text found.';return;}
+    session++;synth.cancel();active=true;paused=false;setControls();speakNext(session);
+  });
+  pause.addEventListener('click',function(){
+    if(!active||paused)return;
+    synth.pause();paused=true;setControls();
+  });
+  stop.addEventListener('click',function(){
+    session++;synth.cancel();finish();
+  });
+  window.addEventListener('pagehide',function(){session++;synth.cancel();finish();});
+})();
+</script></body></html>
