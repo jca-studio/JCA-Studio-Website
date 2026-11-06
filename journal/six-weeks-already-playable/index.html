@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#F7F5F0" name="theme-color"/><link href="/styles.css" rel="stylesheet"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-X04NDHGZG5"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-X04NDHGZG5')</script><title>I Gave Myself Six Weeks to Build an App. The Prototype Took a Day. | JCA Studio</title><meta name="description" content="Around 30 hours building a Christmas game with AI—and discovering why playable isn’t the same as finished."/><!-- Vercel Web Analytics: static HTML integration -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script defer="" src="/_vercel/insights/script.js"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:url" content="https://www.jca-studio.com/journal/six-weeks-already-playable/"/><link rel="canonical" href="https://www.jca-studio.com/journal/six-weeks-already-playable/"/><meta property="og:type" content="article"/><meta property="og:title" content="I Gave Myself Six Weeks to Build an App. The Prototype Took a Day. | JCA Studio"/><meta property="og:description" content="Around 30 hours building a Christmas game with AI—and discovering why playable isn’t the same as finished."/><meta property="og:image" content="https://www.jca-studio.com/assets/six-weeks-social-preview.jpg"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://www.jca-studio.com/assets/six-weeks-social-preview.jpg"/><style>
+.draft-ribbon{background:#202022;color:#fff;font-family:Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;font-size:11px;font-weight:700;text-align:center;padding:11px 18px}
+.draft-ribbon span{color:#e8a269}
+.draft-hero{padding-top:63px;padding-bottom:40px;border-bottom:1px solid var(--rule);margin-bottom:48px}
+.draft-hero .eyebrow{color:var(--blue)}
+.draft-hero h1{font-family:var(--sans);font-size:clamp(2.8rem,6.2vw,6.5rem);font-weight:600;letter-spacing:-.065em;line-height:1.035;max-width:1030px;margin:19px 0 23px}
+.draft-hero .subtitle{font-size:clamp(1.1rem,2vw,1.5rem);max-width:790px;line-height:1.55;color:var(--soft);margin:0 0 24px}
+.draft-hero .byline{font-family:var(--sans);font-size:.82rem}
+.story-article .build-intro{font-size:1.23rem;line-height:1.7}
+.story-article .build-dialogue{font-family:var(--sans);padding:22px 26px;border-left:5px solid var(--orange);background:#fff9f3;margin:23px 0 30px}
+.build-dialogue p{font-size:1.08rem;line-height:1.55;margin:0 0 11px}.build-dialogue p:last-child{margin-bottom:0}
+.build-timeline{list-style:none;padding:0;margin:27px 0 38px;border-top:1px solid var(--rule)}
+.build-step{display:grid;grid-template-columns:118px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.build-date{font-family:var(--sans);font-size:.76rem;letter-spacing:.08em;font-weight:700;color:var(--blue);padding-top:4px}
+.build-step h3{font-family:var(--sans);font-size:1.2rem;letter-spacing:-.035em;margin:0 0 7px}
+.build-step p{line-height:1.65;color:var(--soft);font-size:.96rem;margin:0}
+.shot-section{margin:40px 0 45px}
+.shot-section .shot-header{font:700 .78rem var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--soft);margin:0 0 15px}
+.shot-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.shot-placeholder{margin:0;min-width:0}.shot-photo{width:100%;height:auto;aspect-ratio:940/1310;object-fit:contain;display:block;border-radius:5px;border:1px solid var(--rule);background:#f2f0ec}
+.shot-screen{aspect-ratio:3 / 4.2;background:#eae7e1;border:1px dashed #b5afa8;border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;color:#77736e;position:relative;text-align:center;padding:12px}
+.shot-n{position:absolute;top:13px;left:14px;font:700 11px var(--sans);letter-spacing:.12em}
+.shot-symbol{font-size:42px;font-weight:200}
+.shot-msg{font:700 10px var(--sans);letter-spacing:.12em}
+.shot-placeholder figcaption{font-family:var(--sans);font-size:.8rem;line-height:1.5;margin-top:11px}
+.shot-placeholder figcaption strong,.shot-placeholder figcaption span{display:block}
+.shot-placeholder figcaption span{color:var(--soft);margin-top:3px;font-size:.75rem}
+.hours-chart{margin:25px 0 19px;padding:25px 27px 23px;border:1px solid var(--rule);border-radius:6px;font-family:var(--sans)}
+.hours-chart-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:24px}
+.hours-chart-kicker{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:0 0 7px}
+.hours-chart-total{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;letter-spacing:-.065em;line-height:1.1;margin:0}
+.hours-chart-subtitle{font-size:.87rem;color:var(--soft);margin:5px 0 0}
+.hours-chart-period{font-size:.76rem;color:var(--soft);white-space:nowrap;margin-top:3px}
+.hours-bars{display:grid;gap:16px}
+.hours-bar-heading{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:7px;font-size:.89rem;line-height:1.3}
+.hours-bar-value{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+.hours-track{height:11px;background:#ebe9e5;border-radius:2px;overflow:hidden}
+.hours-fill{height:100%;background:#c6c3bd;border-radius:2px}
+.hours-row--build .hours-fill{background:var(--blue)}
+.hours-row--build .hours-bar-label{font-weight:700}
+@media(max-width:760px){.hours-chart{padding:19px 16px 20px}.hours-chart-top{gap:10px;margin-bottom:21px}.hours-chart-period{font-size:.68rem}.hours-bar-heading{font-size:.82rem}.hours-bars{gap:15px}}
+.hours-note{font-size:.84rem!important;line-height:1.55!important;color:var(--soft)}
+.story-article .build-takeaway{border-left:5px solid var(--orange);font-family:var(--sans);font-weight:600;letter-spacing:-.03em;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.35;padding:6px 0 6px 21px;margin:28px 0 31px}
+.story-article .build-questions{font-style:italic;line-height:1.75}
+.draft-hero,.story-article{box-sizing:border-box}
+@media(max-width:760px){.draft-hero{padding-top:35px;margin-bottom:31px}.draft-hero h1{font-size:clamp(2.45rem,10.5vw,4rem)}.build-step{grid-template-columns:1fr;gap:6px;padding:19px 0}.shot-grid{gap:8px}.shot-screen{min-height:175px}.shot-msg{font-size:8px}.shot-placeholder figcaption{font-size:.72rem}.shot-placeholder figcaption span{font-size:.66rem}.shot-symbol{font-size:29px}.story-article .build-dialogue{padding:17px 18px}}
+
+/* Draft article audio — browser speech synthesis */
+.article-listen{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:18px;font-family:var(--sans)}
+.article-listen button{appearance:none;background:transparent;border:1px solid var(--rule);border-radius:100px;padding:10px 15px;color:inherit;font:600 .82rem var(--sans);cursor:pointer;display:inline-flex;gap:8px;align-items:center;min-height:42px}
+.article-listen button:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+.article-listen button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.article-listen button:disabled{opacity:.45;cursor:not-allowed}
+.article-listen .listen-primary{background:var(--blue);border-color:var(--blue);color:white}
+.article-listen .listen-primary:hover:not(:disabled){background:var(--blue);color:white;filter:brightness(.9)}
+.article-listen-status{font:400 .78rem/1.4 var(--sans);color:var(--soft);margin-left:2px}
+@media(max-width:500px){.article-listen{gap:7px}.article-listen button{padding:9px 13px}}
+.clarkos-phone-figure{margin:0}.clarkos-phone-composite{display:block;width:100%;height:auto;border-radius:5px}.clarkos-phone-figure figcaption{text-align:center;font:.79rem/1.6 var(--sans);color:var(--soft);margin-top:12px}
+
+/* Two-column article hero, matching the original Christmas story. */
+.draft-hero.story-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:clamp(24px,4vw,56px);align-items:center;padding-top:48px;padding-bottom:38px}
+.draft-hero.story-hero .story-heading{min-width:0}
+.draft-hero.story-hero h1{font-size:clamp(2.25rem,3.6vw,4.45rem);line-height:1.07;letter-spacing:-.065em;max-width:none;margin:15px 0 17px}
+.draft-hero.story-hero .subtitle{font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.47;margin-bottom:12px}
+.draft-hero.story-hero .byline{margin-top:16px}
+.draft-hero.story-hero .clarkos-hero-photo{margin:0;min-width:0;width:100%}
+.draft-hero.story-hero .clarkos-hero-photo img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;object-position:center;filter:none;display:block}
+.draft-hero.story-hero .clarkos-hero-photo figcaption{font-size:.66rem;letter-spacing:.07em;padding-top:9px}
+@media(max-width:760px){.draft-hero.story-hero{grid-template-columns:1fr;gap:23px;padding-top:28px;padding-bottom:27px}.draft-hero.story-hero h1{font-size:clamp(2.2rem,9vw,3.5rem);margin:12px 0 14px}}
+.draft-hero.story-hero .article-share{margin:18px 0 0}.draft-hero.story-hero .article-share-title{font-size:.87rem;margin-bottom:10px}.draft-hero.story-hero .article-share-buttons{gap:11px}.draft-hero.story-hero .share-icon{width:43px;height:43px;border-width:1.5px}.share-preview-note{color:var(--soft);font:400 .72rem/1.4 var(--sans);margin:8px 0 0}
+
+/* Article 02 endmatter: a clear festive invitation, then accessible tool details. */
+.story-end .clarkos-tester-invite{border-left:4px solid #C92332;padding:4px 0 5px 22px;margin:0 0 34px;background:none}
+.story-end .clarkos-tester-invite h2{font-family:var(--sans);font-size:clamp(1.3rem,2vw,1.65rem);line-height:1.2;letter-spacing:-.035em;margin:0 0 12px}
+.story-end .clarkos-tester-invite p{font-size:1rem;line-height:1.6;margin:0 0 11px}
+.story-end .clarkos-tester-invite .story-close-links{margin-top:13px}
+.story-end .clarkos-tester-invite .story-close-links a{color:var(--burgundy);border-bottom-color:var(--burgundy)}
+.story-end .story-infrastructure{margin-top:22px}
+.story-end .story-infrastructure .receipts-entries>div{grid-template-columns:minmax(190px,210px) minmax(0,1fr);gap:24px;align-items:start}
+.story-end .story-infrastructure .receipts-entries dt,.story-end .story-infrastructure .receipts-entries dd{min-width:0;overflow-wrap:break-word}
+.story-end .story-end-back{margin-top:25px}
+@media(max-width:760px){.story-end .story-infrastructure .receipts-entries>div{grid-template-columns:minmax(0,1fr);gap:3px}.story-end .clarkos-tester-invite{padding-left:16px;margin-bottom:27px}}
+</style></head><body><header class="mast"><div class="wrap mast-inner"><a aria-label="JCA Studio home" class="logo" href="/"><svg aria-label="JCA Studio" role="img" viewbox="0 0 124 84" xmlns="http://www.w3.org/2000/svg"><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" letter-spacing="-3.2" x="1" y="44">JC</text><path d="M59 47 L75 7" stroke="currentColor" stroke-width="2.9"></path><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" x="78" y="44">A</text><text fill="currentColor" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="6" text-anchor="middle" x="62" y="68">STUDIO</text></svg></a><nav class="nav" aria-label="Main navigation"><a href="/journal/">Projects</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+<main><header class="wrap draft-hero story-hero"><figure class="story-photo clarkos-hero-photo"><img src="/assets/clarkos-feature-v2.webp" alt="Clarkos Christmas game artwork showing Trevor the festive green dinosaur and three illustrated gameplay screens" width="1536" height="1024"><figcaption>Clarkos · The Christmas Game</figcaption></figure><div class="story-heading"><div class="eyebrow">Projects / Christmas 2026 / Build Journal 02</div><h1>I Gave Myself Six Weeks to Build an App. The Prototype Took a Day.</h1><p class="subtitle">Around 30 hours building a Christmas game with AI—and discovering why playable isn't the same as finished.</p><div class="byline">By Jenna Clark · November 5, 2026</div><div class="article-share" data-share-article aria-label="Share this article"><div class="article-share-title">Share</div><div class="article-share-buttons"><button type="button" class="share-icon" data-native-share aria-label="Share article or copy link" title="Share or copy link"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0L7.5 7.5M12 3l4.5 4.5"/><path d="M6 11H4v9h16v-9h-2"/></svg></button><a class="share-icon" aria-label="Share on X" title="Share on X" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.jca-studio.com%2Fjournal%2Fsix-weeks-already-playable%2F&text=I%20Gave%20Myself%20Six%20Weeks%20to%20Build%20an%20App.%20The%20Prototype%20Took%20a%20Day." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h4l12 18h-4L4 3Z"/><path d="M20 3 4 21"/></svg></a><a class="share-icon share-brand" aria-label="Share on LinkedIn" title="Share on LinkedIn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.jca-studio.com%2Fjournal%2Fsix-weeks-already-playable%2F" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">in</span></a><a class="share-icon share-brand share-facebook" aria-label="Share on Facebook" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.jca-studio.com%2Fjournal%2Fsix-weeks-already-playable%2F" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span></a><a class="share-icon" aria-label="Save to Pinterest" title="Save to Pinterest" href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.jca-studio.com%2Fjournal%2Fsix-weeks-already-playable%2F&media=https%3A%2F%2Fwww.jca-studio.com%2Fassets%2Fclarkos-feature-v2.webp&description=Around%2030%20hours%20building%20a%20Christmas%20game%20with%20AI%E2%80%94and%20why%20playable%20isn%E2%80%99t%20the%20same%20as%20finished." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.62 19.32c-.05-.84-.01-1.84.2-2.74l1.34-5.68s-.34-.67-.34-1.66c0-1.56.91-2.73 2.04-2.73.96 0 1.42.72 1.42 1.58 0 .96-.61 2.4-.92 3.74-.26 1.11.56 2.01 1.66 2.01 1.99 0 3.53-2.1 3.53-5.12 0-2.67-1.92-4.53-4.65-4.53-3.2 0-5.08 2.4-5.08 4.88 0 .97.37 2.01.83 2.58.09.11.1.21.08.32l-.31 1.29c-.05.21-.16.26-.37.16-1.36-.64-2.21-2.65-2.21-4.27 0-3.48 2.53-6.67 7.29-6.67 3.83 0 6.8 2.73 6.8 6.38 0 3.81-2.4 6.87-5.72 6.87-1.12 0-2.18-.58-2.54-1.26l-.7 2.68c-.25.97-.95 2.18-1.42 3a10 10 0 1 0 2.29-19.69Z"/></svg></a></div><span class="share-message" role="status" aria-live="polite"></span></div><div class="article-listen" role="group" aria-label="Article audio player">
+<button class="listen-primary" type="button" id="listen-play" aria-label="Play article aloud"><span aria-hidden="true">▶</span> Listen to this article</button>
+<button type="button" id="listen-pause" disabled aria-label="Pause narration">Pause</button>
+<button type="button" id="listen-stop" disabled aria-label="Stop narration">Stop</button>
+<span id="listen-status" class="article-listen-status" role="status" aria-live="polite">Uses your device's voice</span>
+</div></div></header>
+<article class="wrap story-article">
+<p class="build-intro">The day after I announced my plan to build a digital version of our family's Christmas game, I got a text from my friend Emily.</p>
+<div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>Which was funny, because I'd just sent her a link to play the game.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
+<p>When I announced the experiment, I left out one fairly important detail: I'd already been working on the game, on and off, since September.</p>
+<p>I'd come up with the idea, put it aside for a month, and picked it back up in October. The first clickable prototype came together in a day. Over the next few sessions, it became a multiplayer game with real products, phone-based guessing, scoring, and a shared TV scoreboard.</p>
+<p>It wasn't finished. But it worked.</p>
+<p>There's something I've noticed about building with AI: it's remarkably easy to lose track of time.</p>
+<p>You start with one small change. Then you see something else you could improve. Claude makes the update, you test it, spot another possibility, and off you go again. Suddenly you've spent an entire evening tinkering with something you thought would take twenty minutes.</p>
+<p>It's fun. And it's a reminder that fast implementation doesn't necessarily mean less time spent making decisions. In fact, when I added everything up, I'd spent around 30 hours working on the game—and only about a third of that time was directly building it. The rest went into product decisions, design, finding and organizing content, testing, troubleshooting, and getting it into people's hands.</p>
+<blockquote class="build-takeaway">AI makes it possible to build a convincing prototype incredibly quickly. But that speed can create the illusion that the product is finished.</blockquote>
+<h2>The mother-in-law test</h2>
+<p>Once the game was working, I had a decision to make.</p>
+<p>I'd originally planned to surprise my mother-in-law with it at Christmas. But she's been the mastermind behind this tradition for 30 years, and she'd wanted an app version for ages.</p>
+<p>It seemed a little ridiculous to build the whole thing without her. Besides, you have to know your audience.</p>
+<p>So we brought her into the process and played together as a family.</p>
+<p>We found bugs almost immediately: refreshing a phone could wipe out someone's guesses, joining a game wasn't always intuitive, and we needed a better way to organize games across time zones.</p>
+<p>We came away with a list of things to fix, and a much better understanding of what would make the game enjoyable to play.</p>
+<p>Along the way, the game acquired a new name: <em>Clarkos</em>. Clark family meets Argos. A terrible pun, which naturally made it irresistible.</p>
+<h2>Let's take a look inside Clarkos</h2>
+<section class="shot-section" aria-label="Three screens from the playable Clarkos game"><figure class="clarkos-phone-figure"><img class="clarkos-phone-composite" src="/assets/clarkos-three-phones.webp" alt="Three Clarkos smartphone screens in gameplay order: guessing the price of a Ninja air fryer, Trevor revealing the round verdict, and Debz winning with a final scoreboard." width="1448" height="1086" loading="lazy"><figcaption>Make your guess · Trevor's verdict · Debz wins!</figcaption></figure></section>
+<p>Here's the funny thing about having a working app: people can see it, press the buttons, play the game, and reasonably wonder what else there is to do.</p>
+<p>But our family playtest had already shown how much was left to get right.</p>
+<p>I could ask AI to build a Christmas price-guessing game, and it could. But it wouldn't automatically know the little things that make it <em>our</em> game: the history, the personalities, the way we've played for years, or why my mother-in-law has kept the tradition going for three decades.</p>
+<p>That context matters. So does bringing the people you're building for into the process.</p>
+<p>After years of building teams, systems, and better ways of working inside large organizations, I'm seeing how much of that same thinking applies here.</p>
+<p>AI can help write code, develop requirements, design interfaces, and test solutions. But <strong>the ability to build something isn't the same as knowing what to build—or why.</strong></p>
+
+<p>The next few weeks are about listening to the people playing, fixing what doesn't work, and making Clarkos something my family genuinely enjoys.</p>
+<p>Emily's question was fair. I didn't need six more weeks to get a working game.</p>
+<p>But I wasn't trying to build just any game. I wanted to help keep a 30-year-old family tradition going.</p>
+<p><strong>AI shortened the time it took to build the game. It hasn't shortened the list of things that make the game worth playing.</strong></p>
+<div class="story-end">
+<section class="story-close clarkos-tester-invite" aria-labelledby="tester-heading"><h2 id="tester-heading">Help test Clarkos</h2><p>Want to help get Clarkos ready for Christmas? I'm looking for a few people willing to play, find the bugs, and tell me what doesn't make sense.</p><p>A few rough edges guaranteed. Useful feedback very much appreciated.</p>
+<nav class="story-close-links" aria-label="End of article"><a href="mailto:jenna@jca-studio.com?subject=I%20want%20to%20test%20Clarkos%21&body=I%20want%20to%20test%20Clarkos%21">Help me test Clarkos <span aria-hidden="true">↗</span></a></nav></section>
+
+<section class="story-receipts" aria-labelledby="receipts-heading">
+<div class="receipts-heading"><svg class="receipts-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v18l3-2 3 2 3-2 3 2 3-2V3H4Z"/><path d="M8 8h7M8 12h7M8 16h4"/></svg><h2 id="receipts-heading">AI Receipts</h2></div>
+<p class="receipts-intro">The AI tools behind this build, and what each helped me do.</p>
+<dl class="receipts-entries">
+<div><dt>Claude (Anthropic)</dt><dd>App design and development, product collection, early prototypes, technical testing, documentation, and deployment workflows.</dd></div>
+<div><dt>ChatGPT (OpenAI)</dt><dd>Editorial planning and writing, design collaboration, and building and refining the JCA Studio website.</dd></div>
+<div><dt>Gemini (Google)</dt><dd>Brainstorming, exploring ideas, and thought partnership.</dd></div>
+<div><dt>AI Voice Generator</dt><dd>Experimenting with narrated voiceovers to make the article easier and more enjoyable to listen to.</dd></div>
+<div><dt>HeyGen</dt><dd>Exploring and testing narration voices for the article’s audio version.</dd></div>
+</dl></section>
+<section class="story-receipts story-infrastructure" aria-labelledby="behind-scenes-heading">
+<div class="receipts-heading"><h2 id="behind-scenes-heading">Behind the Scenes</h2></div>
+<p class="receipts-intro">The technical infrastructure supporting Clarkos and the JCA Studio website.</p>
+<dl class="receipts-entries">
+<div><dt>GitHub &amp; GitHub Pages</dt><dd>Source-code management and hosting the playable game.</dd></div>
+<div><dt>Firebase Realtime Database</dt><dd>Live multiplayer rooms and player synchronization.</dd></div>
+<div><dt>Vercel</dt><dd>Hosting and preview deployments for the JCA Studio website, where I'm documenting the experiment.</dd></div>
+</dl></section>
+<section class="story-fineprint"><h2>The Fine Print</h2><p>Clarkos is an independent personal project inspired by our family's use of historic Argos catalogs. It is not affiliated with or endorsed by Argos. The game is still in development and has not been publicly released.</p></section>
+
+<nav class="story-close-links story-end-back" aria-label="More projects"><a href="/journal/">More projects <span aria-hidden="true">↗</span></a></nav>
+</div></article></main>
+<footer class="wrap footer"><span>© 2026 JCA Studio · An independent space by Jenna Clark</span><span><a href="mailto:jenna@jca-studio.com">Email</a> · <a href="https://www.linkedin.com/in/jennaswyclark/" rel="noopener noreferrer" target="_blank">LinkedIn</a><span class="dot"> ●</span></span></footer><script>
+(function(){
+  'use strict';
+  var play=document.getElementById('listen-play');
+  var pause=document.getElementById('listen-pause');
+  var stop=document.getElementById('listen-stop');
+  var status=document.getElementById('listen-status');
+  if(!play||!pause||!stop||!status)return;
+  var synth=window.speechSynthesis;
+  var Speech=window.SpeechSynthesisUtterance;
+  if(!synth||!Speech){
+    play.disabled=true;
+    status.textContent='Audio unavailable in this browser. Use your device\'s Read Aloud feature.';
+    return;
+  }
+  var segments=[],index=0,active=false,paused=false,token=0,current=null,started=false,timeout=null;
+  function clearWatch(){if(timeout!==null){clearTimeout(timeout);timeout=null;}}
+  function setUI(message){
+    play.disabled=active&&!paused;
+    play.innerHTML=paused?'<span aria-hidden="true">▶</span> Resume':'<span aria-hidden="true">▶</span> Listen to this article';
+    play.setAttribute('aria-label',paused?'Resume narration':'Play article aloud');
+    pause.disabled=!active||paused;
+    stop.disabled=!active;
+    status.textContent=message||(paused?'Paused':active?'Playing article':'Uses your device\'s voice');
+  }
+  function reset(message){
+    clearWatch();current=null;segments=[];index=0;active=false;paused=false;started=false;
+    setUI(message);
+  }
+  function stopSpeech(message){token++;clearWatch();synth.cancel();reset(message);}
+  function getSegments(){
+    var article=document.querySelector('article.story-article');
+    var title=document.querySelector('.draft-hero h1');
+    var subtitle=document.querySelector('.draft-hero .subtitle');
+    var pieces=[];
+    if(title)pieces.push(title.textContent.trim());
+    if(subtitle)pieces.push(subtitle.textContent.trim());
+    if(article){
+      article.querySelectorAll('p,h2,h3,blockquote').forEach(function(el){
+        if(el.closest('.story-end,.hours-chart,.shot-section'))return;
+        var text=el.textContent.replace(/\s+/g,' ').trim();
+        if(text)pieces.push(text);
+      });
+    }
+    var chunks=[];
+    pieces.forEach(function(part){
+      while(part.length>180){
+        var cut=part.lastIndexOf(' ',180);
+        if(cut<70)cut=180;
+        chunks.push(part.slice(0,cut).trim());
+        part=part.slice(cut).trim();
+      }
+      if(part)chunks.push(part);
+    });
+    return chunks;
+  }
+  function speakNext(id){
+    if(id!==token||!active||paused)return;
+    clearWatch();
+    if(index>=segments.length){reset('Finished listening');return;}
+    current=new Speech(segments[index++]);
+    current.lang='en-US';
+    current.rate=1;
+    started=false;
+    current.onstart=function(){if(id!==token)return;started=true;clearWatch();setUI('Playing article');};
+    current.onend=function(){if(id!==token)return;current=null;speakNext(id);};
+    current.onerror=function(e){
+      if(id!==token)return;
+      if(e.error==='canceled'||e.error==='interrupted')return;
+      stopSpeech('Could not play audio ('+(e.error||'unknown error')+'). Try another browser.');
+    };
+    try{synth.speak(current);}catch(e){stopSpeech('Unable to start audio on this device.');return;}
+    timeout=setTimeout(function(){
+      if(id!==token||!active||started||paused)return;
+      if(synth.speaking){started=true;setUI('Playing article');return;}
+      stopSpeech('Speech did not start. Check device audio, or try another browser.');
+    },6000);
+  }
+  play.addEventListener('click',function(){
+    if(paused){
+      try{synth.resume();paused=false;setUI('Playing article');}catch(e){stopSpeech('Could not resume audio.');}
+      return;
+    }
+    if(active)return;
+    segments=getSegments();index=0;
+    if(!segments.length){setUI('No article text found.');return;}
+    token++;active=true;paused=false;setUI('Starting audio…');
+    speakNext(token);
+  });
+  pause.addEventListener('click',function(){
+    if(!active||paused)return;
+    try{synth.pause();paused=true;clearWatch();setUI('Paused');}
+    catch(e){stopSpeech('Could not pause audio.');}
+  });
+  stop.addEventListener('click',function(){stopSpeech('Stopped');});
+  window.addEventListener('pagehide',function(){if(active)stopSpeech();});
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden&&active&&!paused){try{synth.pause();paused=true;clearWatch();setUI('Paused');}catch(e){}}
+  });
+  setUI();
+})();
+</script><script>
+(function(){
+  'use strict';
+  var wrap=document.querySelector('[data-share-article]');
+  if(!wrap)return;
+  var sourceUrl=window.location.origin+window.location.pathname;
+  var title=document.querySelector('.draft-hero h1')?.textContent.trim()||document.title;
+  var isPreview=window.location.hostname!=='www.jca-studio.com'&&window.location.hostname!=='jca-studio.com';
+  var shareUrl=isPreview?sourceUrl:'https://www.jca-studio.com/journal/six-weeks-already-playable/';
+  var options=wrap.querySelectorAll('a.share-icon');
+  options.forEach(function(link){
+    var label=link.getAttribute('aria-label')||'';
+    if(label==='Share on X')link.href='https://twitter.com/intent/tweet?url='+encodeURIComponent(shareUrl)+'&text='+encodeURIComponent(title);
+    if(label==='Share on LinkedIn')link.href='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(shareUrl);
+    if(label==='Share on Facebook')link.href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(shareUrl);
+    if(label==='Save to Pinterest')link.href='https://pinterest.com/pin/create/button/?url='+encodeURIComponent(shareUrl)+'&media='+encodeURIComponent(window.location.origin+'/assets/clarkos-feature-v2.webp')+'&description='+encodeURIComponent(title);
+  });
+  var button=wrap.querySelector('[data-native-share]'),notice=wrap.querySelector('.share-message');
+  if(button)button.addEventListener('click',async function(){
+    if(navigator.share){
+      try{await navigator.share({title:title,url:shareUrl});return;}
+      catch(e){if(e.name==='AbortError')return;}
+    }
+    try{
+      if(!navigator.clipboard||!navigator.clipboard.writeText)throw Error('Clipboard not available');
+      await navigator.clipboard.writeText(shareUrl);
+      notice.textContent='Article link copied';
+    }catch(e){notice.textContent='Copy the article URL from your browser';}
+  });
+  if(isPreview){
+    var msg=document.createElement('p');
+    msg.className='share-preview-note';
+    msg.textContent='Draft preview: shared links may require Vercel login.';
+    wrap.appendChild(msg);
+  }
+})();
+</script></body></html>
