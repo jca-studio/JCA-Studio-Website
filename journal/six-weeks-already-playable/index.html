@@ -68,7 +68,7 @@
 </div></header>
 <article class="wrap story-article">
 <p class="build-intro">The day after I announced my plan to build a digital version of our family's Christmas game, I got a text from my friend Emily.</p>
-<div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>Which was funny, because I'd just sent her a link to play it.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
+<div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>I smiled, because I'd just sent her a link to try the early version.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
 <p>When I announced the experiment, I left out one fairly important detail: I'd already been working on the game, on and off, since September.</p>
 <p>I'd come up with the idea, put it aside for a month, and picked it back up in October. The first clickable prototype came together in a day. Over the next few sessions, it became a multiplayer game with real products, phone-based guessing, scoring, and a shared TV scoreboard.</p>
 <p>It wasn't finished. But it worked.</p>
@@ -98,7 +98,7 @@
 <p>AI can help write code, develop requirements, design interfaces, and test solutions. But <strong>the ability to build something isn't the same as knowing what to build—or why.</strong></p>
 <p>A tool can make a process faster without making the process better. You still need to understand the problem, the people involved, and what you're trying to achieve.</p>
 <p>The next few weeks are about listening to the people playing, fixing what doesn't work, and making Clarkos something my family genuinely enjoys.</p>
-<p>Emily was right. I didn't need six more weeks to get a working game.</p>
+<p>Emily's question was fair. I didn't need six more weeks to get a working game.</p>
 <p>But I wasn't trying to build just any game. I wanted to help keep a 30-year-old family tradition going.</p>
 <blockquote class="story-pull">AI shortened the time it took to build the game. <span class="blue">It hasn't shortened the list of things that make the game worth playing.</span></blockquote>
 <div class="story-end">
@@ -122,70 +122,98 @@
   var pause=document.getElementById('listen-pause');
   var stop=document.getElementById('listen-stop');
   var status=document.getElementById('listen-status');
-  var synth=window.speechSynthesis;
   if(!play||!pause||!stop||!status)return;
-  if(!synth||!window.SpeechSynthesisUtterance){
+  var synth=window.speechSynthesis;
+  var Speech=window.SpeechSynthesisUtterance;
+  if(!synth||!Speech){
     play.disabled=true;
-    status.textContent='Audio isn't supported by this browser.';
+    status.textContent='Audio unavailable in this browser. Use your device\'s Read Aloud feature.';
     return;
   }
-  var segments=[],index=0,active=false,paused=false,session=0;
-  function setControls(){
+  var segments=[],index=0,active=false,paused=false,token=0,current=null,started=false,timeout=null;
+  function clearWatch(){if(timeout!==null){clearTimeout(timeout);timeout=null;}}
+  function setUI(message){
     play.disabled=active&&!paused;
     play.innerHTML=paused?'<span aria-hidden="true">▶</span> Resume':'<span aria-hidden="true">▶</span> Listen to this article';
     play.setAttribute('aria-label',paused?'Resume narration':'Play article aloud');
     pause.disabled=!active||paused;
     stop.disabled=!active;
-    status.textContent=paused?'Paused':active?'Playing article':'Uses your device\'s voice';
+    status.textContent=message||(paused?'Paused':active?'Playing article':'Uses your device\'s voice');
   }
-  function gatherText(){
+  function reset(message){
+    clearWatch();current=null;segments=[];index=0;active=false;paused=false;started=false;
+    setUI(message);
+  }
+  function stopSpeech(message){token++;clearWatch();synth.cancel();reset(message);}
+  function getSegments(){
     var article=document.querySelector('article.story-article');
     var title=document.querySelector('.draft-hero h1');
     var subtitle=document.querySelector('.draft-hero .subtitle');
-    var parts=[];
-    if(title)parts.push(title.textContent.trim());
-    if(subtitle)parts.push(subtitle.textContent.trim());
+    var pieces=[];
+    if(title)pieces.push(title.textContent.trim());
+    if(subtitle)pieces.push(subtitle.textContent.trim());
     if(article){
       article.querySelectorAll('p,h2,h3,blockquote').forEach(function(el){
         if(el.closest('.story-end,.hours-chart,.shot-section'))return;
-        var str=el.textContent.replace(/\s+/g,' ').trim();
-        if(str)parts.push(str);
+        var text=el.textContent.replace(/\s+/g,' ').trim();
+        if(text)pieces.push(text);
       });
     }
-    return parts;
+    var chunks=[];
+    pieces.forEach(function(part){
+      while(part.length>180){
+        var cut=part.lastIndexOf(' ',180);
+        if(cut<70)cut=180;
+        chunks.push(part.slice(0,cut).trim());
+        part=part.slice(cut).trim();
+      }
+      if(part)chunks.push(part);
+    });
+    return chunks;
   }
-  function finish(){
-    active=false;paused=false;index=0;segments=[];setControls();
-  }
-  function speakNext(token){
-    if(!active||paused||token!==session)return;
-    if(index>=segments.length){finish();return;}
-    var utterance=new SpeechSynthesisUtterance(segments[index++]);
-    utterance.lang='en-US';
-    utterance.rate=1;
-    utterance.onend=function(){speakNext(token);};
-    utterance.onerror=function(e){
-      if(token!==session||!active)return;
-      if(e.error==='interrupted'||e.error==='canceled')return;
-      session++;synth.cancel();finish();
-      status.textContent='Playback stopped. Try again or use a different browser.';
+  function speakNext(id){
+    if(id!==token||!active||paused)return;
+    clearWatch();
+    if(index>=segments.length){reset('Finished listening');return;}
+    current=new Speech(segments[index++]);
+    current.lang='en-US';
+    current.rate=1;
+    started=false;
+    current.onstart=function(){if(id!==token)return;started=true;clearWatch();setUI('Playing article');};
+    current.onend=function(){if(id!==token)return;current=null;speakNext(id);};
+    current.onerror=function(e){
+      if(id!==token)return;
+      if(e.error==='canceled'||e.error==='interrupted')return;
+      stopSpeech('Could not play audio ('+(e.error||'unknown error')+'). Try another browser.');
     };
-    synth.speak(utterance);
+    try{synth.speak(current);}catch(e){stopSpeech('Unable to start audio on this device.');return;}
+    timeout=setTimeout(function(){
+      if(id!==token||!active||started||paused)return;
+      if(synth.speaking){started=true;setUI('Playing article');return;}
+      stopSpeech('Speech did not start. Check device audio, or try another browser.');
+    },6000);
   }
   play.addEventListener('click',function(){
-    if(paused){paused=false;synth.resume();setControls();return;}
+    if(paused){
+      try{synth.resume();paused=false;setUI('Playing article');}catch(e){stopSpeech('Could not resume audio.');}
+      return;
+    }
     if(active)return;
-    segments=gatherText();index=0;
-    if(!segments.length){status.textContent='No article text found.';return;}
-    session++;synth.cancel();active=true;paused=false;setControls();speakNext(session);
+    segments=getSegments();index=0;
+    if(!segments.length){setUI('No article text found.');return;}
+    token++;active=true;paused=false;setUI('Starting audio…');
+    speakNext(token);
   });
   pause.addEventListener('click',function(){
     if(!active||paused)return;
-    synth.pause();paused=true;setControls();
+    try{synth.pause();paused=true;clearWatch();setUI('Paused');}
+    catch(e){stopSpeech('Could not pause audio.');}
   });
-  stop.addEventListener('click',function(){
-    session++;synth.cancel();finish();
+  stop.addEventListener('click',function(){stopSpeech('Stopped');});
+  window.addEventListener('pagehide',function(){if(active)stopSpeech();});
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden&&active&&!paused){try{synth.pause();paused=true;clearWatch();setUI('Paused');}catch(e){}}
   });
-  window.addEventListener('pagehide',function(){session++;synth.cancel();finish();});
+  setUI();
 })();
 </script></body></html>
