@@ -59,6 +59,7 @@
 .article-listen .listen-primary:hover:not(:disabled){background:var(--blue);color:white;filter:brightness(.9)}
 .article-listen-status{font:400 .78rem/1.4 var(--sans);color:var(--soft);margin-left:2px}
 @media(max-width:500px){.article-listen{gap:7px}.article-listen button{padding:9px 13px}}
+.clarkos-phone-figure{margin:0}.clarkos-phone-composite{display:block;width:100%;height:auto;border-radius:5px}.clarkos-phone-figure figcaption{text-align:center;font:.79rem/1.6 var(--sans);color:var(--soft);margin-top:12px}
 </style></head><body><header class="mast"><div class="wrap mast-inner"><a aria-label="JCA Studio home" class="logo" href="/"><svg aria-label="JCA Studio" role="img" viewbox="0 0 124 84" xmlns="http://www.w3.org/2000/svg"><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" letter-spacing="-3.2" x="1" y="44">JC</text><path d="M59 47 L75 7" stroke="currentColor" stroke-width="2.9"></path><text fill="currentColor" font-family="Arial,sans-serif" font-size="45" font-weight="600" x="78" y="44">A</text><text fill="currentColor" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="6" text-anchor="middle" x="62" y="68">STUDIO</text></svg></a><nav class="nav" aria-label="Main navigation"><a href="/journal/">Projects</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header><div class="draft-ribbon"><span>Draft preview</span> · Not published</div>
 <main><header class="wrap draft-hero"><div class="eyebrow">Projects / Christmas 2026 / Build Journal 02</div><h1>I Gave Myself Six Weeks to Build an App. The Prototype Took a Day.</h1><p class="subtitle">Around 30 hours building a Christmas game with AI—and why playable isn't the same as finished.</p><div class="byline">By Jenna Clark · Draft for November 2026</div><div class="article-listen" role="group" aria-label="Article audio player">
 <button class="listen-primary" type="button" id="listen-play" aria-label="Play article aloud"><span aria-hidden="true">▶</span> Listen to this article</button>
@@ -68,7 +69,7 @@
 </div></header>
 <article class="wrap story-article">
 <p class="build-intro">The day after I announced my plan to build a digital version of our family's Christmas game, I got a text from my friend Emily.</p>
-<div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>I smiled, because I'd just sent her a link to try the early version.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
+<div class="build-dialogue"><p>“You don't need six weeks to build that!”</p><p>Which was funny, because I'd just sent her a link to play the game.</p><p>“Emily, you've already played the game.”</p><p>“Oh, yeah.”</p></div>
 <p>When I announced the experiment, I left out one fairly important detail: I'd already been working on the game, on and off, since September.</p>
 <p>I'd come up with the idea, put it aside for a month, and picked it back up in October. The first clickable prototype came together in a day. Over the next few sessions, it became a multiplayer game with real products, phone-based guessing, scoring, and a shared TV scoreboard.</p>
 <p>It wasn't finished. But it worked.</p>
@@ -85,11 +86,7 @@
 <p>The test gave us something more useful than a successful demo: a list of things to fix from the people who would actually be playing.</p>
 <p>Along the way, the game acquired a new name: <em>Clarkos</em>. Clark family meets Argos. A terrible pun, which naturally made it irresistible.</p>
 <h2>Let's take a look inside Clarkos</h2>
-<section class="shot-section" aria-label="Screenshots from the playable Christmas game"><div class="shot-grid">
-<figure class="shot-placeholder"><img class="shot-photo" src="/assets/game-join.webp" alt="Start or join a game in Clarkos" width="600" height="836" loading="lazy"><figcaption><strong>Start a game</strong><span>Create a room and invite players.</span></figcaption></figure>
-<figure class="shot-placeholder"><img class="shot-photo" src="/assets/game-guess.webp" alt="Price-guessing screen in Clarkos" width="600" height="836" loading="lazy"><figcaption><strong>Make your guess</strong><span>Submit prices from your phone, one item at a time.</span></figcaption></figure>
-<figure class="shot-placeholder"><img class="shot-photo" src="/assets/game-reveal.webp" alt="Reveal and scores screen in Clarkos" width="600" height="836" loading="lazy"><figcaption><strong>Reveal the damage</strong><span>See the closest guess and the round winner.</span></figcaption></figure>
-</div></section>
+<section class="shot-section" aria-label="Three screens from the playable Clarkos game"><figure class="clarkos-phone-figure"><img class="clarkos-phone-composite" src="/assets/clarkos-three-phones.webp" alt="Three Clarkos smartphone screens in gameplay order: guessing the price of a Ninja air fryer, Trevor revealing the round verdict, and Debz winning with a final scoreboard." width="1448" height="1086" loading="lazy"><figcaption>Make your guess · Trevor's verdict · Debz wins!</figcaption></figure></section>
 <p>Here's the funny thing about having a working app: people can see it, press the buttons, play the game, and reasonably wonder what else there is to do.</p>
 <p>But the family test had already shown how much was left to get right.</p>
 <p>I could ask AI to build a Christmas price-guessing game, and it could. But it wouldn't automatically know the little things that make it <em>our</em> game: the history, the personalities, the way we've played for years, or why my mother-in-law has kept the tradition going for three decades.</p>
